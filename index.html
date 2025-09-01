@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class=""><head><script>window.livecodes = window.livecodes || {};</script><title>Untitled Project (fork)</title><meta name="title" content="Untitled Project (fork)"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js" async=""></script><script type="importmap">{
+  "imports": {}
+}</script></head><body>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Controlled Student Data</title>
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <div class="container">
+        <h1>🗣️ Voice-Controlled Student Data Entry</h1>
+        
+        <div id="status">Status: Idle</div>
+
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter name or say 'name ...'" autofocus="">
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" placeholder="Enter mobile or say 'mobile number ...'">
+            </div>
+            <div class="form-group">
+                <label for="math">Math Marks:</label>
+                <input type="text" id="math" placeholder="Enter marks or say 'math ...'">
+            </div>
+            <div class="form-group">
+                <label for="science">Science Marks:</label>
+                <input type="text" id="science" placeholder="Enter marks or say 'science ...'">
+            </div>
+            <div class="form-group">
+                <label for="hindi">Hindi Marks:</label>
+                <input type="text" id="hindi" placeholder="Enter marks or say 'hindi ...'">
+            </div>
+        </form>
+
+        <div class="btn-group">
+            <button id="startBtn">🎤 Start Listening</button>
+            <button id="saveBtn">💾 Save / Update</button>
+            <button id="newEntryBtn">➕ New Entry</button>
+            <button id="exportBtn">⬇️ Export to CSV</button>
+        </div>
+
+        <hr>
+        
+        <h2>Student Records</h2>
+        <div class="search-group">
+            <input type="text" id="searchInput" placeholder="Search by name or mobile number...">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+        
+        <div class="table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Math</th>
+                        <th>Science</th>
+                        <th>Hindi</th>
+                        <th>Result</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+<script src="./script.js" type="module"></script></body></html>
