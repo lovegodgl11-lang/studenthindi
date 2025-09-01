@@ -19,7 +19,7 @@ const tableBody = document.querySelector('#dataTable tbody');
 // --- Global Variable ---
 let editingRow = null; 
 let studentRecords = [];
-const appScriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; 
+const appScriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; // <--- यहां अपना Google Apps Script URL डालें
 
 // --- WEB SPEECH API SETUP ---
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -32,6 +32,18 @@ recognition.interimResults = false;
 recognition.lang = 'hi-IN'; 
 let keepListening = false;
 let clappingAudio = null;
+
+// Function to clear form inputs
+function clearForm() {
+    nameInput.value = '';
+    mobileInput.value = '';
+    mathInput.value = '';
+    scienceInput.value = '';
+    hindiInput.value = '';
+    editingRow = null;
+    statusDiv.textContent = 'Ready.';
+    searchInput.value = '';
+}
 
 // --- FUNCTIONS ---
 function speak(message, callback) {
@@ -104,14 +116,14 @@ function readData(data) {
         if (messageIndex < messages.length) {
             speak(messages[messageIndex], () => {
                 messageIndex++;
-                setTimeout(readNextMessage, 500);
+                setTimeout(readNextMessage, 500); 
             });
         } else {
             if (result.status === 'Pass') {
                 setTimeout(() => {
                     speak(`बधाई हो, आप पास हैं।`);
                     playClapSound();
-                }, 1000);
+                }, 1000); 
             }
         }
     };
@@ -375,8 +387,9 @@ startBtn.addEventListener('click', () => {
     keepListening = !keepListening;
     if (keepListening) {
         recognition.start();
-        startBtn.textContent = '🛑 Stop Listening';
+        startBtn.textContent = '🛑 Listening...';
         startBtn.style.backgroundColor = '#dc3545';
+        speak('बोलें', () => {});
     } else {
         recognition.stop();
         startBtn.textContent = '🎤 Start Listening';
